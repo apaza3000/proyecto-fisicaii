@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de ley de Pouillet y Simulador de ley de Ohm</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="university-info">
+        <div class="logo"><img src="img/Autonoma.png" alt=""></div>
+        <h1>Universidad Autónoma del Perú</h1>
+      </div>
+      <h2>FÍSICA II</h2>
+    </header>
+
+    <main>
+      <div class="subject">
+        <h2>PROYECTO DEL CURSO</h2>
+
+      </div>
+
+      <h3>INTEGRANTES DEL GRUPO 2</h3>
+      <div class="team">
+        <div class="member">
+          <span class="name">APAZA MACHACA, EDUAR CLEOFE</span>
+          <span class="role">Estudiante</span>
+        </div>
+        <div class="member">
+          <span class="name">CHAVEZ GALVEZ, LUIS <br> <br></span>
+          <span class="role">Estudiante</span>
+        </div>
+        <div class="member">
+          <span class="name">DORADO VERAMENDI, JAMIE PETHER</span>
+          <span class="role">Estudiante</span>
+        </div>
+        <div class="member">
+          <span class="name">VIZCARDO TORRES, KENNETH GERARDO</span>
+          <span class="role">Estudiante</span>
+        </div>
+
+
+      </div>
+
+      <h3>DOCENTE DEL GRUPO</h3>
+      <div class="team">
+        <div class="member">
+          <span class="name">ARTURO DAVILA OBANDO</span>
+        </div>
+
+
+      </div>
+      <div class="row">
+
+
+        <div class="button">
+
+          <button class="animated-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+              </path>
+            </svg>
+            <span class="text"><a href="simulador.html">Simulador ley Ohm</a></span>
+            <span class="circle"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+              </path>
+            </svg>
+          </button>
+
+        </div>
+        <div class="button">
+
+          <button class="animated-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+              </path>
+            </svg>
+            <span class="text"><a href="pouillet.html">Calculadora de Pouillet</a></span>
+            <span class="circle"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+              <path
+                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>© 2025 Universidad Autónoma del Perú - Física II - Proyecto De Calculadora Ley de Resistividad y Simulador interactivo de Ley de Ohm</p>
+    </footer>
+  </div>
+
+  <script>
+    // Efecto de aparición suave para las tarjetas
+    document.addEventListener('DOMContentLoaded', function () {
+      const members = document.querySelectorAll('.member');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      members.forEach(member => {
+        member.style.opacity = 0;
+        member.style.transform = 'translateY(20px)';
+        member.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(member);
+      });
+    });
+  </script>
+</body>
+
+</html>

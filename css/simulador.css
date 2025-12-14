@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #14141e;
+    color: white;
+    overflow: hidden;
+    margin: 0;
+
+    padding: 0rem 5rem;
+
+
+    #container {
+        width: 1100px;
+        position: relative;
+        border: 2px solid #64b4ff;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        gap: 0.5rem;
+        /* overflow: hidden; */
+
+        .title {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #64b4ff;
+            text-shadow: 0 0 5px rgba(0, 100, 200, 0.7);
+        }
+
+        #canvas-container {
+
+            width: 100%;
+            /* border: 2px solid green; */
+            display: flex;
+            flex-direction: column;
+
+            canvas {
+
+                margin: auto;
+                /* background-color: crimson ; */
+
+            }
+
+            #simulation-layer {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                border: 2px solid #64b4ff;
+                border-radius: 15px;
+            }
+
+            #graph-container {
+                width: 1000px;
+                height: 300px;
+                /* border: 2px solid #64b4ff; */
+                margin: auto;
+
+                .graph-canvas {
+                    border: 5px solid blue;
+                }
+            }
+
+
+
+        }
+
+
+
+
+        #pause-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: #ff5050;
+            font-weight: bold;
+        }
+
+
+        .container-panel-help {
+
+            #control-panel {
+                width: 1000px;
+                position: relative;
+
+                .values {
+                    display: flex;
+                    flex-direction: column;
+                    width: 60%;
+                    /* border: 1px solid blue; */
+
+
+                    .value-row {
+
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 15px;
+
+                        .value-label {
+                            font-size: 1.5rem;
+                        }
+
+                        .value-display {
+                            font-size: 1.5rem;
+                            text-align: right;
+                            margin-right: 0.5rem;
+                            color: greenyellow;
+                        }
+
+
+                        .bar-container {
+                            width: 100%;
+                            height: 25px;
+                            background-color: #646464;
+                            border: 1px solid white;
+                            overflow: hidden;
+
+                            .bar-fill {
+                                height: 100%;
+                            }
+
+                        }
+                    }
+                }
+
+
+
+                .controls-info {
+                    margin-top: 1.5rem;
+                    font-size: 1rem;
+                    color: rgb(237, 241, 245);
+                    text-align: center;
+
+                    .controls-title {
+                        color: #ffdc00;
+                    }
+
+                    b{
+                        color: #00e1ff;
+                    }
+                }
+
+                /*circular 2*/
+                .circular-control {
+                    position: absolute;
+                    width: 200px;
+                    height: 200px;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    .btn {
+                        position: absolute;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        border: 2px solid #64b4ff;
+                        color: #64b4ff;
+                        background-color: transparent;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                        font-size: 24px;
+                        cursor: pointer;
+                    }
+
+                    .btn:hover {
+                        background: #64b4ff;
+                        color: white;
+                    }
+
+                    .up {
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    .down {
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    .left {
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .right {
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .center {
+                        position: absolute;
+                        width: 70px;
+                        height: 70px;
+                        border-radius: 50%;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 18px;
+                    }
+                }
+
+
+
+            }
+
+        }
+
+        #help-panel {
+            position: absolute;
+            top: 2rem;
+            right: 20px;
+            width: 300px;
+            background-color: rgba(30, 30, 40, 0.9);
+            border: 2px solid #ffdc00;
+
+
+            .help-text {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .help-title {
+                font-size: 16px;
+                font-weight: bold;
+                color: #ffdc00;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .panel {
+            /* background-color: rgba(30, 30, 40, 0.9); */
+            border: 2px solid #64b4ff;
+            border-radius: 5px;
+            padding: 10px;
+
+            .panel-title {
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffdc00;
+                margin-bottom: 10px;
+            }
+        }
+
+
+
+
+    }
+
+}

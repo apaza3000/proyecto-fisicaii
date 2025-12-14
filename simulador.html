@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación Interactiva - Ley de Ohm</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div id="container">
+        <div class="title">SIMULACIÓN INTERACTIVA - LEY DE OHM</div>
+        <div id="canvas-container">
+            <canvas id="simulation-layer" width="1000px" height="350px"></canvas>
+
+            <div class="panel" id="graph-container">
+                <div class="panel-title">Corriente en tiempo real</div>
+                <canvas id="graph-canvas" width="1000px" height="300"></canvas>
+            </div>
+        </div>
+
+
+
+        <div id="pause-indicator" style="display: none;">⏸ PAUSADO</div>
+
+        <div class="container-panel-help">
+            <div class="panel" id="control-panel">
+                <div class="panel-title">PANEL DE CONTROL - LEY DE OHM</div>
+
+                <div class="container-datd">
+                    <div class="values">
+                        <div class="value-row">
+                            <div class="value-label">⚡ Voltaje (V):</div>
+                            <div class="value-display" id="voltage-value">5.0 V</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" id="voltage-bar" style="width: 33.3%; background-color: #00ff64;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value-row">
+                            <div class="value-label">⊗ Resistencia (R):</div>
+                            <div class="value-display" id="resistance-value">5.0 Ω</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" id="resistance-bar"
+                                    style="width: 33.3%; background-color: #00ff64;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value-row">
+                            <div class="value-label">〰 Corriente (I = V/R):</div>
+                            <div class="value-display" id="current-value">1.00 A</div>
+                            <div class="bar-container">
+                                <div class="bar-fill" id="current-bar" style="width: 10%; background-color: #00ff64;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value-row">
+                            <div class="value-label">⚙ Potencia (P = V×I):</div>
+                            <div class="value-display" id="power-value">5.00 W</div>
+                        </div>
+
+                    </div>
+                    <div class="circular-control">
+                        <button class="btn up" data-action="voltaje-mas">+ V</button>
+                        <button class="btn left" data-action="resistencia-menos">- &Omega;</button>
+                        <button class="btn center" data-action="pause">&EmptySmallSquare;</button>
+                        <button class="btn right" data-action="resistencia-mas">+ &Omega;</button>
+                        <button class="btn down" data-action="voltaje-menos">- V</button>
+
+                    </div>
+                </div>
+
+
+
+                <div class="controls-info">
+                    <span class="controls-title">CONTROLES:</span><br>↑ / ↓ Voltaje <b>|</b> ←/→ Resistencia <b>|</b> ESPACIO Pausa <b>|</b> R
+                    Reiniciar <b>|</b> H Ayuda
+                </div>
+
+
+            </div>
+
+            <div class="panel" id="help-panel">
+                <div class="help-title">LEY DE OHM: V = I × R</div>
+                <div class="help-text"></div>
+                <div class="help-text">V = Voltaje (Voltios)</div>
+                <div class="help-text">I = Corriente (Amperios)</div>
+                <div class="help-text">R = Resistencia (Ohmios)</div>
+                <div class="help-text"></div>
+                <div class="help-title">CONTROLES </div>
+                <div class="help-text">↑/↓ : Voltaje</div>
+                <div class="help-text">←/→ : Resistencia</div>
+                <div class="help-text">ESPACIO: Pausa</div>
+                <div class="help-text">R: Reiniciar</div>
+                <div class="help-text">H: Ayuda o esconder</div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script type="module" src="script2.js"></script>
+
+</body>
+
+</html>

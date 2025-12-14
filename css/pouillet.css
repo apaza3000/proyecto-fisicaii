@@ -1,0 +1,167 @@
+/* --- CSS: DISEÑO --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px;
+}
+
+.container {
+    /* background-color: white; */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    border: 2px solid #64b4ff;
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    text-align: center;
+    color: #64b4ff;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Tabs / Radio Buttons */
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    gap: 20px;
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.radio-label {
+    cursor: pointer;
+    font-weight: 600;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Estilos de formulario */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ddd;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    color: white;
+    background-color: #222222;
+}
+
+select:focus,
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Input Group para Longitud */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 2;
+    background-color: #222222;
+    color: white;
+}
+
+.input-group select {
+    flex: 1;
+    background-color: #222222;
+    color: white;
+}
+
+/* Botón Principal */
+button.btn-calc {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+button.btn-calc:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* Área de Resultados */
+#resultados {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #007bff;
+    display: none;
+}
+
+.res-item {
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.res-valor {
+    font-weight: 800;
+    color: #ddd;
+    font-size: 1.2rem;
+}
+
+.warning-text {
+    font-size: 0.85rem;
+    color: #d9534f;
+    background-color: #fff5f5;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ffdcdc;
+    display: none;
+}
+
+canvas {
+    margin-top: 30px;
+    width: 100%;
+    /* background: white; */
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #64b4ff;
+    ;
+}
