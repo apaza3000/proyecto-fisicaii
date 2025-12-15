@@ -56,7 +56,14 @@
 
         <button class="btn-calc" onclick="calcular()">Calcular</button>
 
-        <div id="resultados" class="hidden">
+
+
+        <!-- Gráficos -->
+        <!-- Canvas donde se dibuja -->
+        <canvas id="canvasConductor" class="hidden" width="600" height="300"></canvas>
+
+
+        <div id="resultado" class="hidden">
             <div class="res-item">
                 <span>Resistencia (R):</span>
                 <span class="res-valor" id="resResistencia">0 Ω</span>
@@ -82,10 +89,6 @@
                 ⚠ En modo manual no se calcula la corriente máxima por seguridad.
             </div>
         </div>
-
-        <!-- Gráficos -->
-        <!-- Canvas donde se dibuja -->
-        <canvas id="canvasConductor" class="hidden" width="600" height="240"></canvas>
 
 
     </div>

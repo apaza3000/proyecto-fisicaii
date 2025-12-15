@@ -106,7 +106,7 @@ function toggleModo() {
     const modo = document.querySelector('input[name="modo"]:checked').value;
     document.getElementById('seccionEstandar').classList.toggle('hidden', modo !== 'estandar');
     document.getElementById('seccionManual').classList.toggle('hidden', modo !== 'manual');
-    document.getElementById('resultados').style.display = 'none';
+    //document.getElementById('resultados').style.display = 'none';
     document.getElementById("canvasConductor").style.display = 'none';
 }
 
@@ -143,7 +143,7 @@ function calcular() {
 
     const R = rho * (L / A);
 
-    document.getElementById("resultados").style.display = "none";
+    //document.getElementById("resultados").style.display = "none";
     document.getElementById("canvasConductor").style.display = 'block'
     document.getElementById("resResistencia").innerText = R.toFixed(4) + " Ω";
 
@@ -172,14 +172,56 @@ function dibujarConductor(rho, A, L, R, LM, MT, colores) {
 
     ctx.clearRect(0, 0, c.width, c.height);
 
+    let diametro = 2 * Math.sqrt(A / Math.PI);
     // Colores según material seleccionado
     const col = colores;
 
     // ====== dibujo ======
-    const x = 60;
-    const y = 100;
+
+    let radio = 3 * diametro;
+    c.height = 250 + diametro * 3;
+    if (diametro > 20) {
+        radio = 3 * (20 + diametro * 0.1)
+        c.height = 250 + 3 * (20 + diametro * 0.2);
+    }
+    if (diametro < 4) {
+        radio = 8 + diametro;
+        console.log(radio, "ingresa a diametro menor a 4");
+
+    }
+
     const largo = 420;
-    const radio = 35;
+
+    const x = 60;
+
+    const y = radio + 70;
+
+
+
+    // línea vertical
+    ctx.beginPath();
+    ctx.moveTo(x - 10, y - radio);
+    ctx.lineTo(x - 10, y + radio);
+    ctx.strokeStyle = "white";
+    ctx.stroke();
+
+    // punta arriba
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.moveTo(x - 10, y - radio - 10);
+    ctx.lineTo(x - 15, y - radio);
+    ctx.lineTo(x - 5, y - radio);
+    ctx.fill();
+
+    // punta abajo
+    ctx.beginPath();
+    ctx.moveTo(x - 10, y + radio + 10);
+    ctx.lineTo(x - 15, y + radio);
+    ctx.lineTo(x - 5, y + radio);
+    ctx.fill();
+    ctx.font = "20px Arial";
+    ctx.fillText(`D `, x - 40, y + 5);
+
 
     // cuerpo del cilindro
     ctx.fillStyle = col.cuerpo;
@@ -195,7 +237,7 @@ function dibujarConductor(rho, A, L, R, LM, MT, colores) {
 
     // corte transversal (A)
     ctx.beginPath();
-    ctx.arc(x + largo / 2, y, radio - 5, 0, Math.PI * 2);
+    ctx.arc(x + largo / 2, y, radio, 0, Math.PI * 2);
     ctx.fillStyle = col.corte;
     ctx.fill();
     ctx.stroke();
@@ -204,14 +246,14 @@ function dibujarConductor(rho, A, L, R, LM, MT, colores) {
     ctx.fillStyle = col.texto;
     ctx.font = "16px Arial";
     ctx.fillText(`Material = ${MT}`, x + 5, y + 5);
-    ctx.fillText(`A = ${A.toFixed(4)}`, x + largo / 2 - 30, y + 5);
+    ctx.fillText(`A`, x + largo / 2 - 5, y + 5);
     ctx.fillText(`ρ = ${rho}`, x + largo - 50, y + 5);
 
 
     // flecha L
     ctx.beginPath();
-    ctx.moveTo(x, y - 50);
-    ctx.lineTo(x + largo, y - 50);
+    ctx.moveTo(x, y - radio - 20);
+    ctx.lineTo(x + largo, y - radio - 20);
     ctx.strokeStyle = "white"
     ctx.stroke();
 
@@ -219,20 +261,23 @@ function dibujarConductor(rho, A, L, R, LM, MT, colores) {
     ctx.fillStyle = "white";
     // punta izquierda
     ctx.beginPath();
-    ctx.moveTo(x, y - 50);
-    ctx.lineTo(x + 15, y - 55);
-    ctx.lineTo(x + 15, y - 45);
+    ctx.moveTo(x, y - radio - 20);
+    ctx.lineTo(x + 15, y - radio - 25);
+    ctx.lineTo(x + 15, y - radio - 15);
     ctx.fill();
 
     // punta derecha
     ctx.beginPath();
-    ctx.moveTo(x + largo, y - 50);
-    ctx.lineTo(x + largo - 15, y - 55);
-    ctx.lineTo(x + largo - 15, y - 45);
+    ctx.moveTo(x + largo, y - radio - 20);
+    ctx.lineTo(x + largo - 15, y - radio - 25);
+    ctx.lineTo(x + largo - 15, y - radio - 15);
     ctx.fill();
 
-    ctx.fillText(`L = ${L} ${LM}`, x + largo / 2 - 20, y - 55);
+
+    ctx.fillText(`Longitud (L) = ${L} ${LM}`, x + largo / 2 - 80, y - radio - 35);
     ctx.font = "20px Arial";
-    ctx.fillText(`R = ${R.toFixed(5)}  Ω`, x + largo / 2 - 40, y + radio + 60);
+    ctx.fillText(`R = ${R.toFixed(6) * 1}  Ω`, x + largo / 2 - 50, y + radio + 30);
+    ctx.fillText(`Diametro (D) = ${diametro} mm`, x + largo / 2 - 100, y + radio + 60);
+    ctx.fillText(`Area (A) = ${A} mm2`, x + largo / 2 - 80, y + radio + 90);
 }
 
